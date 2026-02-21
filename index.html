@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Self Driving Car</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="carPanel">
+            <canvas id="carCanvas"></canvas>
+            <div id="controls">
+                <button onclick="save()" title="Save best brain">💾 Save</button>
+                <button onclick="discard()" title="Discard saved brain">🗑️ Discard</button>
+                <button onclick="toggleVisualizer()" id="vizToggle" title="Toggle network view">🧠 Network</button>
+            </div>
+            <div id="stats">
+                <span id="genInfo">Gen: 1</span>
+                <span id="aliveInfo">Alive: 0</span>
+                <span id="scoreInfo">Best: 0</span>
+            </div>
+        </div>
+        <div id="networkPanel">
+            <div id="networkTitle">Neural Network</div>
+            <canvas id="networkCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="road.js"></script>
+    <script src="controls.js"></script>
+    <script src="sensor.js"></script>
+    <script src="network.js"></script>
+    <script src="car.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    background: #1a1a2e;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#carPanel {
+    position: relative;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#carCanvas {
+    background: #2d2d2d;
+    display: block;
+}
+
+#networkPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #0a0a1a;
+    overflow: hidden;
+    min-width: 0;
+}
+
+#networkTitle {
+    color: #7ecfff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+    background: #111130;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #222244;
+}
+
+#networkCanvas {
+    flex: 1;
+    width: 100%;
+    background: #0a0a1a;
+    display: block;
+}
+
+#controls {
+    display: flex;
+    gap: 6px;
+    padding: 8px;
+    background: #111;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.2s;
+    background: #2a2a4a;
+    color: #aad4ff;
+    border: 1px solid #334;
+}
+
+button:hover {
+    background: #3a3a7a;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#stats {
+    display: flex;
+    gap: 10px;
+    padding: 6px 10px;
+    background: #0d0d22;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-around;
+    font-size: 12px;
+    color: #8af;
+    border-top: 1px solid #222;
+}
+
+#stats span {
+    background: #1a1a33;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Mobile layout - stack vertically */
+@media (max-width: 600px) {
+    #container {
+        flex-direction: column;
+    }
+
+    #networkPanel {
+        height: 40vh;
+        width: 100vw;
+    }
+
+    #networkPanel.hidden {
+        display: none;
+    }
+
+    #carPanel {
+        height: 60vh;
+    }
+
+    #carPanel.fullscreen {
+        height: 100vh;
+    }
+
+    #controls {
+        padding: 5px;
+        gap: 4px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    #stats {
+        font-size: 11px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+    #container {
+        flex-direction: row;
+    }
+    #networkPanel {
+        width: 40vw;
+    }
+}
