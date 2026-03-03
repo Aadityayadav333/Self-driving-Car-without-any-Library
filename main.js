@@ -60,7 +60,7 @@ function generateTraffic() {
 }
 
 // ─── AI Population ──────────────────────────────────────────────────────────
-const N = 500; // Large population for robust evolution
+const N = 300; // Large population for robust evolution
 let generation = 1;
 let cars, traffic, bestCar;
 let showVisualizer = true;
