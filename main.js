@@ -45,6 +45,17 @@ function generateTraffic() {
         new Car(road.getLaneCenter(1), -900,  30, 50, "DUMMY", 2),
         new Car(road.getLaneCenter(2), -1100, 30, 50, "DUMMY", 2),
         new Car(road.getLaneCenter(0), -1100, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(1), -1400, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(2), -1400, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(0), -1500, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(1), -1500, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(2), -1600, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(1), -1600, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(0), -1800, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(2), -1800, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(0), -1900, 30, 50, "DUMMY", 2),
+        new Car(road.getLaneCenter(2), -2000, 30, 50, "DUMMY", 2),
+
     ];
 }
 
@@ -172,14 +183,21 @@ function animate(time) {
     carCtx.save();
     carCtx.translate(0, -bestCar.y + carCanvas.height * 0.65);
 
+    // Grass / verge on both sides
+    carCtx.fillStyle = "#2d5a1b";
+    carCtx.fillRect(0, road.top, road.left, road.bottom - road.top);
+    carCtx.fillRect(road.right, road.top, carCanvas.width - road.right, road.bottom - road.top);
+
     road.draw(carCtx);
 
+    // Traffic — distinct colours per position
+    const trafficColors = ["#e74c3c","#c0392b","#e67e22","#d35400","#8e44ad","#6c3483","#2980b9","#1a5276","#16a085","#0e6655","#f39c12"];
     for (let i = 0; i < traffic.length; i++) {
-        traffic[i].draw(carCtx, "#e74c3c");
+        traffic[i].draw(carCtx, trafficColors[i % trafficColors.length]);
     }
 
     // Ghost cars (semi-transparent swarm)
-    carCtx.globalAlpha = 0.15;
+    carCtx.globalAlpha = 0.18;
     for (let i = 0; i < cars.length; i++) {
         if (!cars[i].damaged) {
             cars[i].draw(carCtx, "#5dade2");
